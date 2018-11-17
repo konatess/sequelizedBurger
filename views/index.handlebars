@@ -1,0 +1,52 @@
+<header class="mb-5">
+    <h1 class="pt-3 pb-1 bg-soft text-center">Eat Da Burger!</h1>
+</header>
+<div class="w-75 mx-auto text-center h-50">
+    <div class="card-deck my-3 h-100">
+        <div class="card bg-soft border-secondary p-3">
+            <img class="burger-image mx-auto" src="assets/img/burger_sm.png" alt="whole burger">
+            <h4 class="card-title mt-2 mb-0">Uneaten Burgers</h4>
+            <div class="card-body burger-display">  
+                <div class="input-group input-group-sm mb-2">
+                    {{#each burgers}}
+                    {{#unless devoured}}
+                    <fieldset class="w-75" disabled>
+                        <input class="form-control border border-warning bg-transparent mb-2" type="text" placeholder="{{id}}. {{burger_name}}">
+                    </fieldset>
+                    <div class="input-group-append">
+                        <button class="btn btn-warning mb-2 devour rounded-right" type="button" data-id="{{id}}">devour</button>
+                    </div>
+                    {{/unless}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="card bg-soft border-secondary p-3">
+            <img class="burger-image mx-auto" src="assets/img/burger_bw.png" alt="ghost burger">
+            <h4 class="card-title mt-2 mb-0">Eaten Burgers</h4>
+            <div class="card-body burger-display">
+                <div class="input-group input-group-sm mb-2">
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    <fieldset class="w-100" disabled>
+                        <input class="form-control border border-warning bg-transparent mb-2" type="text" placeholder="{{id}}. {{burger_name}}">
+                    </fieldset>
+                    {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" id="burger_name" placeholder="Name Your Burger" aria-label="Name your burger"
+            aria-describedby="submit">
+        <div class="input-group-append">
+            <button class="btn btn-warning" type="button" id="submit">Build Your Burger</button>
+        </div>
+    </div>
+</div>
+<footer class="text-center pb-3 bg-soft">
+    Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> <br>
+    <a href="https://www.pexels.com/photo/carrots-food-fresh-freshness-616401/" target="_blank">Photo by Lukas from Pexels</a>
+</footer>

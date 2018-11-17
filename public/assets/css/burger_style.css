@@ -1,0 +1,27 @@
+html, body {
+    height: 100%;
+    font-family: 'Righteous', cursive;
+}
+
+html {
+    background-image: url("../img/carrots-food-fresh-616401.jpg");
+    background-size: cover;
+}
+
+footer {
+    position: sticky;
+    top: 100%;
+}
+
+.bg-soft {
+    background-color: #ffffff77
+}
+
+.burger-display {
+    overflow: scroll;
+}
+
+.burger-image {
+    height: 64px;
+    width: 64px;
+}
