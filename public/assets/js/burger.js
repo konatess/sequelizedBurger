@@ -1,7 +1,7 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
+    // set listener for devour buttons
     $(".devour").on("click", function (event) {
-        console.log($(this).data("id"))
         var id = $(this).data("id");
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
@@ -10,7 +10,7 @@ $(function () {
             function () {
                 console.log("devoured", id);
                 // Reload the page to get the updated list
-                location.reload();
+                window.location.reload(true);
             }
         )
     });
@@ -34,6 +34,7 @@ $(function () {
             };
             // AJAX post the data to the friends API.
             $.post("/api/burgers", burgerData, function (data) {
+            }).then(function() {
                 window.location.reload(true);
             });
         }
