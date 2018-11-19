@@ -6,13 +6,11 @@ $(function () {
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: {devoured: true}
-        }).then(
-            function () {
-                console.log("devoured", id);
-                // Reload the page to get the updated list
-                window.location.reload(true);
-            }
-        )
+        }).then(function () {
+            console.log("devoured", id);
+            // Reload the page to get the updated list
+            location.reload();
+        })
     });
     $("#submit").on("click", function (event) {
         // Form validation: Require name
@@ -32,10 +30,10 @@ $(function () {
             var burgerData = {
                 name: name
             };
-            // AJAX post the data to the friends API.
+            // AJAX post the data to the API.
             $.post("/api/burgers", burgerData, function (data) {
             }).then(function() {
-                window.location.reload(true);
+                location.reload();
             });
         }
         else {
