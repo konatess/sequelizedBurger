@@ -32,7 +32,8 @@ $(function () {
             };
             // AJAX post the data to the API.
             $.post("/api/burgers", burgerData, function (data) {
-            }).then(function() {
+            }).then(function(data) {
+                console.log(data);
                 location.reload();
             });
         }

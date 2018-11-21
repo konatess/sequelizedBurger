@@ -26,11 +26,18 @@ router.get("/index", function (req, res) {
     });
 });
 
+// redirect to index from basic route
+router.get("/", function (req, res) {
+    res.redirect("/index");
+})
+
 // Post route to create new burger
 router.post("/api/burgers", function (req, res) {
     var query = {}
     query.name = req.body.name
-    db.Burger.create(query, function (result) {
+    db.Burger.create(
+        query 
+    ).then(function (result) {
         // Send back the ID of the new burger
         res.json({ id: result.insertId });
     });
